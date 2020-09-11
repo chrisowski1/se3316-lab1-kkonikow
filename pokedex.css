@@ -1,31 +1,28 @@
 body {
   background: #d4cfcf;
 }
-
 body h1 {
   color: #e71414;
   font-size: 46px;
   text-align: center;
   font-family: arial;
+  text-decoration: underline;
 }
-
 body ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 body ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-basis: 20%;  
+  flex-basis: 20%;
   margin-bottom: 20px;
-  margin-right: 20px;  
+  margin-right: 20px;
   background: #c0ac81;
   border: 5px solid rgb(216, 86, 86);
 }
-
 body ul li span {
   font-family: arial;
   font-size: 20px;
@@ -35,3 +32,23 @@ body ul li span {
   margin-bottom: 10px;
   margin-top: 5px;
 }
+
+footer {
+  background: #ddb545;
+  padding-top: 10px;
+  padding-bottom: 10px;  
+}
+footer h2 {
+  color: #000000;
+  font-size: 25px;
+  text-align: center;
+  font-family: arial;
+  text-decoration: underline;
+}
+footer p {
+  color: #000000;
+  font-size: 16px;
+  text-align: center;
+  font-family: arial;
+}
+
