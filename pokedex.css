@@ -1,3 +1,20 @@
+header div.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
+}
+header div.name-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 30px;
+}
+header div.num-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 body {
   background: #d4cfcf;
 }
@@ -32,11 +49,15 @@ body ul li span {
   margin-bottom: 10px;
   margin-top: 5px;
 }
+body ul li span.info {
+  font-size: 14px;
+  font-weight: normal;
+}
 
 footer {
   background: #ddb545;
   padding-top: 10px;
-  padding-bottom: 10px;  
+  padding-bottom: 10px;
 }
 footer h2 {
   color: #000000;
@@ -51,4 +72,3 @@ footer p {
   text-align: center;
   font-family: arial;
 }
-
