@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <h1> Pokédex </h1>
     <link href="pokedex.css" rel="stylesheet" type="text/css">
+    <script src="search.js"></script>
 </head>
 <header>
     <title> Pokédex </title>
     <div class="search">
         <div class="name-search">
             <input type="text" id="s-name" placeholder="Search by name"><br><br>
-            <button id="btn-name"> Search </button>
+            <button id="btn-name" onclick="nameSearch()"> Search </button>
         </div>
         <div class="num-search">
             <input type="number" id="s-num" placeholder="Search by number"><br><br>
-            <button id="btn-num"> Search </button>
+            <button id="btn-num" onclick="numSearch()"> Search </button>
         </div>
     </div>
 </header>
