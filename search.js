@@ -1,13 +1,24 @@
-var nameInput = document.getElementById("s-name");
-var numInput = document.getElementById("s-num");
-var filter = input.value.toUpperCase();
-var ul = document.getElementById("pokedex");
-var li = ul.getElementsByTagName("li");
+
 
 function nameSearch(){
-    console.log("Test name");        
+    var nameInput = document.getElementById("s-name");    
+    nameInput = nameInput.value.toUpperCase();
+    var ul = document.getElementById("pokedex");
+    var li = ul.getElementsByTagName("li");
+    console.log("Test name");
+    console.log(nameInput);        
 }
 
 function numSearch(){
-    console.log("Test num");
+    var numInput = document.getElementById("s-num");
+    numInput = numInput.value;
+    var ul = document.getElementById("pokedex");
+    var li = ul.getElementsByTagName("li");
+    
+    if(numInput>=1 && numInput<=20){
+        console.log("Valid");        
+    }
+    else{
+        console.log("Invalid");        
+    }
 }
