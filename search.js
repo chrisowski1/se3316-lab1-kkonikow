@@ -5,8 +5,14 @@ function nameSearch(){
     nameInput = nameInput.value.toUpperCase();
     var ul = document.getElementById("pokedex");
     var li = ul.getElementsByTagName("li");
-    console.log("Test name");
-    console.log(nameInput);        
+    var checkLetters = /^[A-Za-z]+$/
+    
+    if(nameInput.match(checkLetters) && nameInput.length<20){
+        console.log("Valid");        
+    }
+    else{
+        console.log("Invalid");        
+    }
 }
 
 function numSearch(){
