@@ -1,4 +1,4 @@
-var pokemon = ["#01 Bulbasaur   Type: Grass/Poison   Parent: N/A", 
+var pokemon = ["#01 Bulbasaur   Type: Grass/Poison   Parent: N/A", // Pokemon array used for search function 
   "#02 Ivysaur   Type: Grass/Poison   Parent: Bulbasaur", 
   "#03 Venusaur   Type: Grass/Poison   Parent: Ivysaur", 
   "#04 Charmander   Type: Fire   Parent: N/A", 
@@ -19,8 +19,8 @@ var pokemon = ["#01 Bulbasaur   Type: Grass/Poison   Parent: N/A",
   "#19 Rattata   Type: Normal   Parent: N/A", 
   "#20 Raticate   Type:  Normal   Parent: Rattata", ];
 
-function nameSearch() {
-  var nameInput = document.getElementById("s-name");
+function nameSearch() { // Name search function
+  var nameInput = document.getElementById("s-name"); // Gets variables from html file using id's and tags
   nameInput = nameInput.value.toUpperCase();
   var ul = document.getElementById("pokedex");
   var li = ul.getElementsByTagName("li");
@@ -31,28 +31,28 @@ function nameSearch() {
   var vali = true;  
   var pokemonSearch = [];
 
-  for (i = 0; i < li.length; i++) {
-    span = li[i].getElementsByTagName("span")[0];
+  for (i = 0; i < li.length; i++) { 
+    span = li[i].getElementsByTagName("span")[0]; // Gets all elements from the list in the html file by using span tag
     textSearch = span.textContent || span.innerText;
-    if (nameInput.match(checkLetters) && nameInput.length < 20 && textSearch.toUpperCase().indexOf(nameInput) > -1 && vali) {
-      pokemonSearch.push(i);
+    if (nameInput.match(checkLetters) && nameInput.length < 20 && textSearch.toUpperCase().indexOf(nameInput) > -1 && vali) { // Checks if entry contains letters a-z, is less than 20 characters, and matches a pokemon name
+      pokemonSearch.push(i); // Adds pokemon to pokemonSearch array 
       num++;
-      if (num == 5) {
+      if (num == 5) { // Stops running the loop if the search reaches 5 matches
         vali = false;
       }
-    }else if(nameInput.length >= 20 && !nameInput.match(checkLetters)) {
+    }else if(nameInput.length >= 20 && !nameInput.match(checkLetters)) { // Outputs an appropriate alert message and breaks the loop
         alert("Cannot enter more than 20 characters \nMust enter only a-z and A-Z");
         break;
-    }else if(nameInput.length >= 20) {
+    }else if(nameInput.length >= 20) { // Outputs an appropriate alert message and breaks the loop
         alert("Cannot enter more than 20 characters");
         break;
-    }else if(!nameInput.match(checkLetters)) {
+    }else if(!nameInput.match(checkLetters)) { // Outputs an appropriate alert message and breaks the loop
         alert("Must enter only a-z and A-Z");
         break;
     }   
   }
 
-  if(pokemonSearch.length == 1) {
+  if(pokemonSearch.length == 1) { // Creates an alert displaying all pokemon matches found
     alert(pokemonSearch.length + " matches:\n" + pokemon[pokemonSearch[0]]);    
   }else if(pokemonSearch.length == 2) {
     alert(pokemonSearch.length + " matches:\n" + pokemon[pokemonSearch[0]] + "\n" + pokemon[pokemonSearch[1]]);
@@ -68,8 +68,8 @@ function nameSearch() {
 }
 
 
-function numSearch() {
-  var numInput = document.getElementById("s-num");
+function numSearch() { // Number search function
+  var numInput = document.getElementById("s-num"); // Gets variables from html file
   numInput = numInput.value;
   var ul = document.getElementById("pokedex");
   var li = ul.getElementsByTagName("li");
@@ -79,22 +79,22 @@ function numSearch() {
   var vali = true;  
   var pokemonSearch = [];
 
-  for (i = 0; i < li.length; i++) {
+  for (i = 0; i < li.length; i++) { // Gets all elements from the list in the html file
     span = li[i].getElementsByTagName("span")[0];
     numSearch = span.textContent || span.innerText;
-    if (numInput >= 1 && numInput <= 20 && numSearch.indexOf(numInput) > -1 && vali) {
-      pokemonSearch.push(i);
+    if (numInput >= 1 && numInput <= 20 && numSearch.indexOf(numInput) > -1 && vali) { // Checks if number is between 1 and 20 and checks if number matches any pokemon
+      pokemonSearch.push(i);  // Adds pokemon to pokemonSearch array 
       num++;
-      if (num == 5) {
+      if (num == 5) { // Stops running the loop if the search reaches 5 matches
         vali = false;
       }
-    }else if(numInput < 1 || numInput > 20) {
+    }else if(numInput < 1 || numInput > 20) { // Outputs an appropriate alert message and breaks the loop
         alert("Must enter number 1-20");
         break;
     }
   }
 
-  if(pokemonSearch.length == 1) {
+  if(pokemonSearch.length == 1) { // Creates an alert displaying all pokemon matches found
     alert(pokemonSearch.length + " matches:\n" + pokemon[pokemonSearch[0]]);    
   }else if(pokemonSearch.length == 2) {
     alert(pokemonSearch.length + " matches:\n" + pokemon[pokemonSearch[0]] + "\n" + pokemon[pokemonSearch[1]]);
