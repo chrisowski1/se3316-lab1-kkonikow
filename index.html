@@ -8,135 +8,136 @@
     <meta name="Krzysztof Konikowski" content="">
     <link href="pokedex.css" rel="stylesheet" type="text/css">
 </head>
-<header>
-    <h1> Pokédex </h1>
-    <div class="search">
-        <div class="name-search">
-            <input type="text" id="s-name" placeholder="Search by name"><br><br>            
-        </div>
-        <div class="num-search">
-            <input type="number" id="s-num" placeholder="Search by number"><br><br>            
-        </div>
-    </div>
-</header>
-
 <body>
+    <header>
+        <h1 id="main-title"> Pokédex </h1>
+        <div class="search">
+            <div class="name-search">
+                <input type="text" id="s-name" placeholder="Search by name"><br><br>            
+            </div>
+            <div class="num-search">
+                <input type="number" id="s-num" placeholder="Search by number"><br><br>            
+            </div>
+        </div>
+    </header>
+
+
     <ul id="pokedex">
-        <li>
+        <li id="0">
             <img src="pokemon/1.png" alt="Bulbasaur">
             <span> #01 Bulbasaur </span>
             <span class="info"> Type: Grass/Poison</span>
             <span class="info"> Parent: N/A</span>
         </li>
-        <li>
+        <li id="1">
             <img src="pokemon/2.png" alt="Ivysaur">
             <span> #02 Ivysaur </span>
             <span class="info"> Type: Grass/Poison</span>
             <span class="info"> Parent: Bulbasaur</span>
         </li>
-        <li>
+        <li id="2">
             <img src="pokemon/3.png" alt="Venusaur">
             <span> #03 Venusaur </span>
             <span class="info"> Type: Grass/Poison</span>
             <span class="info"> Parent: Ivysaur</span>
         </li>
-        <li>
+        <li id="3">
             <img src="pokemon/4.png" alt="Charmander">
             <span> #04 Charmander </span>
             <span class="info"> Type: Fire</span>
             <span class="info"> Parent: N/A</span>
         </li>
-        <li>
+        <li id="4">
             <img src="pokemon/5.png" alt="Charmeleon">
             <span> #05 Charmeleon </span>
             <span class="info"> Type: Fire</span>
             <span class="info"> Parent: Charmander</span>
         </li>
-        <li>
+        <li id="5">
             <img src="pokemon/6.png" alt="Charizard">
             <span> #06 Charizard </span>
             <span class="info"> Type: Fire/Flying</span>
             <span class="info"> Parent: Charmeleon</span>
         </li>
-        <li>
+        <li id="6">
             <img src="pokemon/7.png" alt="Squirtle">
             <span> #07 Squirtle </span>
             <span class="info"> Type: Water</span>
             <span class="info"> Parent: N/A</span>
         </li>
-        <li>
+        <li id="7">
             <img src="pokemon/8.png" alt="Wartortle">
             <span> #08 Wartortle </span>
             <span class="info"> Type: Water</span>
             <span class="info"> Parent: Squirtle</span>
         </li>
-        <li>
+        <li id="8">
             <img src="pokemon/9.png" alt="Blastoise">
             <span> #09 Blastoise </span>
             <span class="info"> Type: Water</span>
             <span class="info"> Parent: Wartortle</span>
         </li>
-        <li>
+        <li id="9">
             <img src="pokemon/10.png" alt="Caterpie">
             <span> #10 Caterpie </span>
             <span class="info"> Type: Bug</span>
             <span class="info"> Parent: N/A</span>
         </li>
-        <li>
+        <li id="10">
             <img src="pokemon/11.png" alt="Metapod">
             <span> #11 Metapod </span>
             <span class="info"> Type: Bug</span>
             <span class="info"> Parent: Caterpie</span>
         </li>
-        <li>
+        <li id="11">
             <img src="pokemon/12.png" alt="Butterfree">
             <span> #12 Butterfree </span>
             <span class="info"> Type: Bug/Flying</span>
             <span class="info"> Parent: Metapod</span>
         </li>
-        <li>
+        <li id="12">
             <img src="pokemon/13.png" alt="Weedle">
             <span> #13 Weedle </span>
             <span class="info"> Type: Bug/Poison</span>
             <span class="info"> Parent: N/A</span>
         </li>
-        <li>
+        <li id="13">
             <img src="pokemon/14.png" alt="Kakuna">
             <span> #14 Kakuna </span>
             <span class="info"> Type: Bug/Poison</span>
             <span class="info"> Parent: Weedle</span>
         </li>
-        <li>
+        <li id="14">
             <img src="pokemon/15.png" alt="Beedrill">
             <span> #15 Beedrill </span>
             <span class="info"> Type: Bug/Poison</span>
             <span class="info"> Parent: Kakuna</span>
         </li>
-        <li>
+        <li id="15">
             <img src="pokemon/16.png" alt="Pidgey">
             <span> #16 Pidgey </span>
             <span class="info"> Type: Normal/Flying</span>
             <span class="info"> Parent: N/A</span>
         </li>
-        <li>
+        <li id="16">
             <img src="pokemon/17.png" alt="Pidgeotto">
             <span> #17 Pidgeotto </span>
             <span class="info"> Type: Normal/Flying</span>
             <span class="info"> Parent: Pidgey</span>
         </li>
-        <li>
+        <li id="17">
             <img src="pokemon/18.png" alt="Pidgeot">
             <span> #18 Pidgeot </span>
             <span class="info"> Type: Normal/Flying</span>
             <span class="info"> Parent: Pidgeotto</span>
         </li>
-        <li>
+        <li id="18">
             <img src="pokemon/19.png" alt="Rattata">
             <span> #19 Rattata </span>
             <span class="info"> Type: Normal</span>
             <span class="info"> Parent: N/A</span>
         </li>
-        <li>
+        <li id="19">
             <img src="pokemon/20.png" alt="Raticate">
             <span> #20 Raticate </span>
             <span class="info"> Type: Normal</span>
@@ -144,13 +145,14 @@
         </li>
     </ul>
     <script src="search.js"></script>
-</body>
 
-<footer>
-    <h2> References </h2>
-    <p><a href="https://www.kaggle.com/kvpratama/pokemon-images-dataset">Pokemon data set</a></p>
-    <p><a href="https://www.reddit.com/r/TheSilphRoad/comments/7p952h/pokemon_go_pokedex_spreadsheet/">Pokemon excel
-            form</a></p>
-</footer>
+
+    <footer>
+        <h2> References </h2>
+        <p><a href="https://www.kaggle.com/kvpratama/pokemon-images-dataset">Pokemon data set</a></p>
+        <p><a href="https://www.reddit.com/r/TheSilphRoad/comments/7p952h/pokemon_go_pokedex_spreadsheet/">Pokemon excel
+                form</a></p>
+    </footer>
+</body>
 
 </html>

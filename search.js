@@ -5,6 +5,7 @@ nameIn.addEventListener("keyup", nameSearch);
 var numIn = document.getElementById("s-num");
 numIn.addEventListener("keyup", numSearch);
 
+
 function nameSearch() { // Name search function
   var nameInput = document.getElementById("s-name");
   nameInput = nameInput.value.toUpperCase();
@@ -14,6 +15,8 @@ function nameSearch() { // Name search function
   var span;
   var textSearch;    
   var pokemonSearch = [];
+
+  createDiv();
 
   for (i = 0; i < li.length; i++) { 
     span = li[i].getElementsByTagName("span")[0]; // Gets all elements from the list in the html file by using span tag
@@ -53,6 +56,25 @@ function numSearch() { // Number search function
         break;
     }
   }     
+}
+
+
+function createDiv() {
+  var pokemonDiv = document.createElement("div");
+  pokemonDiv.setAttribute("id", "search-div");
+
+  var searchUl = document.createElement("ul");
+  searchUl.setAttribute("id", "search-ul");
+
+  var searchHead = document.createElement("h1");
+  searchHead.setAttribute("id", "search-title");  
+
+  var searchTitle = document.createTextNode("Results:");
+  searchHead.appendChild(searchTitle);
+  pokemonDiv.appendChild(searchHead);
+  pokemonDiv.appendChild(searchUl);  
+
+  document.body.insertBefore(pokemonDiv, pokedex);
 }
 
 

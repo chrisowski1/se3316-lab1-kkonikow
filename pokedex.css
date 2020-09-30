@@ -18,7 +18,7 @@ header div.num-search {
 body {
   background: #d4cfcf;
 }
-body h1 {
+body header h1 {
   color: #e71414;
   font-size: 46px;
   text-align: center;
@@ -71,4 +71,16 @@ footer p {
   font-size: 16px;
   text-align: center;
   font-family: arial;
+}
+
+body h1 {
+  color: #d8f340;
+  font-size: 30px;
+  text-align: center;
+  font-family: arial;
+  padding-top: 5px;    
+}
+body div#search-div {
+  background: #437514;  
+  border: 5px solid rgb(0, 0, 0);  
 }
