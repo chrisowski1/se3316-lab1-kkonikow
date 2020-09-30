@@ -1,4 +1,10 @@
 
+var nameIn = document.getElementById("s-name");
+nameIn.addEventListener("keyup", nameSearch);
+
+var numIn = document.getElementById("s-num");
+numIn.addEventListener("keyup", numSearch);
+
 function nameSearch() { // Name search function
   var nameInput = document.getElementById("s-name");
   nameInput = nameInput.value.toUpperCase();
@@ -14,13 +20,13 @@ function nameSearch() { // Name search function
     textSearch = span.textContent || span.innerText;
     if (nameInput.match(checkLetters) && nameInput.length < 20 && textSearch.toUpperCase().indexOf(nameInput) > -1) { // Checks if entry contains letters a-z, is less than 20 characters, and matches a pokemon name
       pokemonSearch.push(i); // Adds pokemon to pokemonSearch array      
-    }else if(nameInput.length >= 20 && !nameInput.match(checkLetters)) { // Outputs an appropriate alert message and breaks the loop
+    }else if(nameInput.length >= 20 && !nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Cannot enter more than 20 characters \nMust enter only a-z and A-Z");
         break;
-    }else if(nameInput.length >= 20) { // Outputs an appropriate alert message and breaks the loop
+    }else if(nameInput.length >= 20 && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Cannot enter more than 20 characters");
         break;
-    }else if(!nameInput.match(checkLetters)) { // Outputs an appropriate alert message and breaks the loop
+    }else if(!nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Must enter only a-z and A-Z");
         break;
     }   
@@ -42,7 +48,7 @@ function numSearch() { // Number search function
     numSearch = span.textContent || span.innerText;
     if (numInput >= 1 && numInput <= 20 && numSearch.indexOf(numInput) > -1) { // Checks if number is between 1 and 20 and checks if number matches any pokemon
       pokemonSearch.push(i);  // Adds pokemon to pokemonSearch array      
-    }else if(numInput < 1 || numInput > 20) { // Outputs an appropriate alert message and breaks the loop
+    }else if((numInput < 1 || numInput > 20) && numInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Must enter number 1-20");
         break;
     }
