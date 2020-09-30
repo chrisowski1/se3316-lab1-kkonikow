@@ -5,18 +5,30 @@ nameIn.addEventListener("keyup", nameSearch);
 var numIn = document.getElementById("s-num");
 numIn.addEventListener("keyup", numSearch);
 
+var ul = document.getElementById("pokedex");
+var li = ul.getElementsByTagName("li");
+
+var nameBool = false;
+var numBool = false;
+
 
 function nameSearch() { // Name search function
   var nameInput = document.getElementById("s-name");
-  nameInput = nameInput.value.toUpperCase();
-  var ul = document.getElementById("pokedex");
-  var li = ul.getElementsByTagName("li");
+  nameInput = nameInput.value.toUpperCase();  
   var checkLetters = /^[A-Za-z]+$/;
   var span;
   var textSearch;    
-  var pokemonSearch = [];
+  var pokemonSearch = [];  
 
-  createDiv();
+  if (!nameBool) {
+    createDiv();
+  }
+
+  if (nameInput != "") {
+    nameBool = true;  
+  } else {
+    nameBool = false;
+  }  
 
   for (i = 0; i < li.length; i++) { 
     span = li[i].getElementsByTagName("span")[0]; // Gets all elements from the list in the html file by using span tag
@@ -25,27 +37,41 @@ function nameSearch() { // Name search function
       pokemonSearch.push(i); // Adds pokemon to pokemonSearch array      
     }else if(nameInput.length >= 20 && !nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Cannot enter more than 20 characters \nMust enter only a-z and A-Z");
+        deleteDiv();
         break;
     }else if(nameInput.length >= 20 && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Cannot enter more than 20 characters");
+        deleteDiv();
         break;
     }else if(!nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Must enter only a-z and A-Z");
+        deleteDiv();
         break;
+    }else if(nameInput == "") {
+      deleteDiv();
     }   
-  }  
+  }
+  console.log(pokemonSearch);  
 }
 
 
 function numSearch() { // Number search function
   var numInput = document.getElementById("s-num"); // Gets variables from html file
-  numInput = numInput.value;
-  var ul = document.getElementById("pokedex");
-  var li = ul.getElementsByTagName("li");
+  numInput = numInput.value;  
   var span;
   var numSearch;    
   var pokemonSearch = [];
 
+  if (!numBool) {
+    createDiv();
+  }
+
+  if (numInput != "") {
+    numBool = true;  
+  } else {
+    numBool = false;
+  }
+  
   for (i = 0; i < li.length; i++) { // Gets all elements from the list in the html file
     span = li[i].getElementsByTagName("span")[0];
     numSearch = span.textContent || span.innerText;
@@ -53,9 +79,13 @@ function numSearch() { // Number search function
       pokemonSearch.push(i);  // Adds pokemon to pokemonSearch array      
     }else if((numInput < 1 || numInput > 20) && numInput != "") { // Outputs an appropriate alert message and breaks the loop
         alert("Must enter number 1-20");
+        deleteDiv();
         break;
+    }else if(numInput == "") {
+      deleteDiv();      
     }
-  }     
+  }
+  console.log(pokemonSearch);     
 }
 
 
@@ -77,4 +107,9 @@ function createDiv() {
   document.body.insertBefore(pokemonDiv, pokedex);
 }
 
+
+function deleteDiv() {
+  var deleteDiv = document.getElementById("search-div");
+  deleteDiv.remove();  
+}
 
