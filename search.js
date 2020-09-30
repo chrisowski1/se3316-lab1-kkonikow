@@ -11,6 +11,7 @@ var li = ul.getElementsByTagName("li");
 var nameBool = false;
 var numBool = false;
 
+var pokemonSearch = [];
 
 function nameSearch() { // Name search function
   var nameInput = document.getElementById("s-name");
@@ -18,12 +19,12 @@ function nameSearch() { // Name search function
   var checkLetters = /^[A-Za-z]+$/;
   var span;
   var textSearch;    
-  var pokemonSearch = [];  
+  pokemonSearch = [];
 
   if (!nameBool) {
     createDiv();
   }
-
+  
   if (nameInput != "") {
     nameBool = true;  
   } else {
@@ -51,6 +52,7 @@ function nameSearch() { // Name search function
       deleteDiv();
     }   
   }
+  //createDiv();
   console.log(pokemonSearch);  
 }
 
@@ -59,8 +61,8 @@ function numSearch() { // Number search function
   var numInput = document.getElementById("s-num"); // Gets variables from html file
   numInput = numInput.value;  
   var span;
-  var numSearch;    
-  var pokemonSearch = [];
+  var numSearch;
+  pokemonSearch = [];  
 
   if (!numBool) {
     createDiv();
@@ -102,7 +104,32 @@ function createDiv() {
   var searchTitle = document.createTextNode("Results:");
   searchHead.appendChild(searchTitle);
   pokemonDiv.appendChild(searchHead);
-  pokemonDiv.appendChild(searchUl);  
+  pokemonDiv.appendChild(searchUl);
+  
+  for (i = 0; i < 3; i++) {
+    var listElement = document.createElement("LI");
+    
+    var nodeImg = document.createElement("img");
+    var nodeName = document.createElement("span");
+    var nodeDes1 = document.createElement("span");
+    var nodeDes2 = document.createElement("span");
+    
+    nodeImg.setAttribute("src", li[0].getElementsByTagName("img")[0].src);
+    nodeName.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[0].innerText));
+    nodeDes1.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[1].innerText));
+    nodeDes2.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[2].innerText));
+
+    nodeName.setAttribute("class", "searchDesc");
+    nodeDes1.setAttribute("class", "searchDesc");
+    nodeDes2.setAttribute("class", "searchDesc");
+
+    listElement.appendChild(nodeName);
+    listElement.appendChild(nodeDes1);
+    listElement.appendChild(nodeDes2);  
+    searchUl.appendChild(listElement); 
+  }
+                                
+  
 
   document.body.insertBefore(pokemonDiv, pokedex);
 }
@@ -110,6 +137,6 @@ function createDiv() {
 
 function deleteDiv() {
   var deleteDiv = document.getElementById("search-div");
-  deleteDiv.remove();  
+  deleteDiv?.remove();        
 }
 
