@@ -19,7 +19,9 @@ function nameSearch() { // Name search function
   var checkLetters = /^[A-Za-z]+$/;
   var span;
   var textSearch;    
-  pokemonSearch = [];   
+  pokemonSearch = []; 
+  
+  document.getElementById("s-num").value = "";
 
   for (i = 0; i < li.length; i++) { 
     span = li[i].getElementsByTagName("span")[0]; // Gets all elements from the list in the html file by using span tag
@@ -58,6 +60,8 @@ function numSearch() { // Number search function
   var numSearch;
   pokemonSearch = [];  
   
+  document.getElementById("s-name").value = "";
+
   for (i = 0; i < li.length; i++) { // Gets all elements from the list in the html file
     span = li[i].getElementsByTagName("span")[0];
     numSearch = span.textContent || span.innerText;
