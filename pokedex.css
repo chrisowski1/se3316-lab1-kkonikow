@@ -73,9 +73,16 @@ footer p {
   font-family: arial;
 }
 
-body h1 {
+body h1#search-title {
   color: #d8f340;
   font-size: 30px;
+  text-align: center;
+  font-family: arial;
+  padding-top: 5px;    
+}
+body h2#search-no-results {
+  color: #2bf1ff;
+  font-size: 20px;
   text-align: center;
   font-family: arial;
   padding-top: 5px;    

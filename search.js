@@ -81,11 +81,16 @@ function createDiv() { // Function to create and populate the new search element
   searchUl.setAttribute("id", "search-ul"); // Sets id
 
   var searchHead = document.createElement("h1"); // Creates h1 element
-  searchHead.setAttribute("id", "search-title"); // Sets id  
+  searchHead.setAttribute("id", "search-title"); // Sets id 
+  
+  var noResults = document.createElement("h2"); // Creates h2 element
+  noResults.setAttribute("id", "search-no-results"); // Sets id
 
   var searchTitle = document.createTextNode("Results:"); // Creates text node for title
+  
   searchHead.appendChild(searchTitle); // Appends all children
   pokemonDiv.appendChild(searchHead);
+  pokemonDiv.appendChild(noResults);
   pokemonDiv.appendChild(searchUl);
   
   for (i = 0; i <= 19; i++) { // Runs loop for 20 iterations      
@@ -115,6 +120,12 @@ function createDiv() { // Function to create and populate the new search element
       searchUl.appendChild(listElement); // Appends the listElement to the ul
     } 
   }
+
+  if (pokemonSearch.length <= 0) {
+    var searchResults = document.createTextNode("No results found"); // Creates text node for for when no reults are present 
+    noResults.appendChild(searchResults); // Appends all children
+  }
+
   document.body.insertBefore(pokemonDiv, pokedex); // Inserts the entire new div before the main pokemon list
 }
 
