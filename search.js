@@ -28,7 +28,7 @@ function nameSearch() { // Name search function
       pokemonSearch.push(i); // Adds pokemon to pokemonSearch array      
     }
   }
-  
+
     if (nameBool) {
       createDiv();
     }
@@ -57,32 +57,28 @@ function numSearch() { // Number search function
   var span;
   var numSearch;
   pokemonSearch = [];  
-
-  if (numBool) {
-    createDiv();
-  }
-
-  if (numInput != "") {
-    numBool = false;  
-  } else {
-    numBool = true;
-  }
   
   for (i = 0; i < li.length; i++) { // Gets all elements from the list in the html file
     span = li[i].getElementsByTagName("span")[0];
     numSearch = span.textContent || span.innerText;
     if (numInput >= 1 && numInput <= 20 && numSearch.indexOf(numInput) > -1) { // Checks if number is between 1 and 20 and checks if number matches any pokemon
       pokemonSearch.push(i);  // Adds pokemon to pokemonSearch array      
-    }else if((numInput < 1 || numInput > 20) && numInput != "") { // Outputs an appropriate alert message and breaks the loop
+    }
+  }
+
+    if (numBool) {
+      createDiv();
+    }
+
+    if((numInput < 1 || numInput > 20) && numInput != "") { // Outputs an appropriate alert message and breaks the loop
       deleteDiv();    
       alert("Must enter number 1-20");
-      numBool = true;        
-      break;
+      numBool = true;     
     }else if(numInput == "") {
       deleteDiv();      
     }
   }       
-}
+
 
 
 function createDiv() {
