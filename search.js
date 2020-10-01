@@ -1,17 +1,14 @@
 
-var nameIn = document.getElementById("s-name");
-nameIn.addEventListener("keyup", nameSearch);
+var nameIn = document.getElementById("s-name"); // Get the name search textbox element by id
+nameIn.addEventListener("keyup", nameSearch); // Add event listener for name search textbox
 
-var numIn = document.getElementById("s-num");
+var numIn = document.getElementById("s-num"); // Same as above but for number search
 numIn.addEventListener("keyup", numSearch);
 
-var ul = document.getElementById("pokedex");
-var li = ul.getElementsByTagName("li");
+var ul = document.getElementById("pokedex"); // Get the list element from HTML by id
+var li = ul.getElementsByTagName("li"); // Get the list elements by tag name
 
-var nameBool = true;
-var numBool = true;
-
-var pokemonSearch = [];
+var pokemonSearch = []; // Creates array for search functions
 
 function nameSearch() { // Name search function
   var nameInput = document.getElementById("s-name");
@@ -19,9 +16,9 @@ function nameSearch() { // Name search function
   var checkLetters = /^[A-Za-z]+$/;
   var span;
   var textSearch;    
-  pokemonSearch = []; 
+  pokemonSearch = []; // Clears array 
   
-  document.getElementById("s-num").value = "";
+  document.getElementById("s-num").value = ""; // Clear number search box
 
   for (i = 0; i < li.length; i++) { 
     span = li[i].getElementsByTagName("span")[0]; // Gets all elements from the list in the html file by using span tag
@@ -30,24 +27,18 @@ function nameSearch() { // Name search function
       pokemonSearch.push(i); // Adds pokemon to pokemonSearch array      
     }
   }
+    createDiv(); // Creates the new element   
 
-    if (nameBool) {
-      createDiv();
-    }
-
-    if(nameInput.length >= 20 && !nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
+    if(nameInput.length >= 20 && !nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and deletes the new div
       deleteDiv();
-      alert("Cannot enter more than 20 characters \nMust enter only a-z and A-Z");
-      nameBool = true;      
-    }else if(nameInput.length >= 20 && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
+      alert("Cannot enter more than 20 characters \nMust enter only a-z and A-Z");            
+    }else if(nameInput.length >= 20 && nameInput != "") { // Outputs an appropriate alert message and deletes the new div 
       deleteDiv();
-      alert("Cannot enter more than 20 characters");
-      nameBool = true;     
-    }else if(!nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and breaks the loop
+      alert("Cannot enter more than 20 characters");           
+    }else if(!nameInput.match(checkLetters) && nameInput != "") { // Outputs an appropriate alert message and deletes the new div
       deleteDiv();
-      alert("Must enter only a-z and A-Z");
-      nameBool = true;      
-    }else if (nameInput == "") {
+      alert("Must enter only a-z and A-Z");            
+    }else if (nameInput == "") { // Deletes the new div if the search box is empty
       deleteDiv();
     } 
 }
@@ -58,9 +49,9 @@ function numSearch() { // Number search function
   numInput = numInput.value;  
   var span;
   var numSearch;
-  pokemonSearch = [];  
+  pokemonSearch = []; // Clears array 
   
-  document.getElementById("s-name").value = "";
+  document.getElementById("s-name").value = ""; // Clears name search box
 
   for (i = 0; i < li.length; i++) { // Gets all elements from the list in the html file
     span = li[i].getElementsByTagName("span")[0];
@@ -68,75 +59,68 @@ function numSearch() { // Number search function
     if (numInput >= 1 && numInput <= 20 && numSearch.indexOf(numInput) > -1) { // Checks if number is between 1 and 20 and checks if number matches any pokemon
       pokemonSearch.push(i);  // Adds pokemon to pokemonSearch array      
     }
-  }
+  }   
+    createDiv(); // Creates the new div   
 
-    if (numBool) {
-      createDiv();
-    }
-
-    if((numInput < 1 || numInput > 20) && numInput != "") { // Outputs an appropriate alert message and breaks the loop
+    if((numInput < 1 || numInput > 20) && numInput != "") { // Outputs an appropriate alert message and deletes the new div
       deleteDiv();    
-      alert("Must enter number 1-20");
-      numBool = true;     
-    }else if(numInput == "") {
+      alert("Must enter number 1-20");           
+    }else if(numInput == "") { // Deletes the new div if the search box is empty
       deleteDiv();      
     }
   }       
 
 
 
-function createDiv() {
-  deleteDiv();
-  var pokemonDiv = document.createElement("div");
-  pokemonDiv.setAttribute("id", "search-div");
+function createDiv() { // Function to create and populate the new search element
+  deleteDiv(); // Deletes existing div
+  var pokemonDiv = document.createElement("div"); // Creates div element
+  pokemonDiv.setAttribute("id", "search-div"); // Sets id
 
-  var searchUl = document.createElement("ul");
-  searchUl.setAttribute("id", "search-ul");
+  var searchUl = document.createElement("ul"); // Creates ul element
+  searchUl.setAttribute("id", "search-ul"); // Sets id
 
-  var searchHead = document.createElement("h1");
-  searchHead.setAttribute("id", "search-title");  
+  var searchHead = document.createElement("h1"); // Creates h1 element
+  searchHead.setAttribute("id", "search-title"); // Sets id  
 
-  var searchTitle = document.createTextNode("Results:");
-  searchHead.appendChild(searchTitle);
+  var searchTitle = document.createTextNode("Results:"); // Creates text node for title
+  searchHead.appendChild(searchTitle); // Appends all children
   pokemonDiv.appendChild(searchHead);
   pokemonDiv.appendChild(searchUl);
   
-  for (i = 0; i <= 19; i++) {       
-    if (pokemonSearch.includes(i)) {    
-      var listElement = document.createElement("LI");
-      listElement.setAttribute("class", "searchDesc");
+  for (i = 0; i <= 19; i++) { // Runs loop for 20 iterations      
+    if (pokemonSearch.includes(i)) { // Checks if i is in the pokemonSearch array    
+      var listElement = document.createElement("LI"); // Creates li element
+      listElement.setAttribute("class", "searchDesc"); // Sets class
       
-      var nodeImg = document.createElement("img");
+      var nodeImg = document.createElement("img"); // Creates all elements for new search list
       var nodeName = document.createElement("span");
       var nodeDes1 = document.createElement("span");
       var nodeDes2 = document.createElement("span");
       
-      nodeImg.setAttribute("src", li[i].getElementsByTagName("img")[0].src);
-      nodeName.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[0].innerText));
+      nodeImg.setAttribute("src", li[i].getElementsByTagName("img")[0].src); // Gets source for image
+      nodeName.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[0].innerText)); // Appends pokemon information taken from HTML page
       nodeDes1.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[1].innerText));
       nodeDes2.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[2].innerText));
 
-      nodeImg.setAttribute("class", "searchDesc");
+      nodeImg.setAttribute("class", "searchDesc"); // Sets all classes
       nodeName.setAttribute("class", "searchDesc");
       nodeDes1.setAttribute("class", "searchDescInfo");
       nodeDes2.setAttribute("class", "searchDescInfo");
 
-      listElement.appendChild(nodeImg);
+      listElement.appendChild(nodeImg); // Appends children to the listElement element
       listElement.appendChild(nodeName);
       listElement.appendChild(nodeDes1);
       listElement.appendChild(nodeDes2);  
-      searchUl.appendChild(listElement);
+      searchUl.appendChild(listElement); // Appends the listElement to the ul
     } 
   }
-                                
-  
-
-  document.body.insertBefore(pokemonDiv, pokedex);
+  document.body.insertBefore(pokemonDiv, pokedex); // Inserts the entire new div before the main pokemon list
 }
 
 
-function deleteDiv() {
-  var deleteDiv = document.getElementById("search-div");
-  deleteDiv?.remove();        
+function deleteDiv() { // Function to delete the new div
+  var deleteDiv = document.getElementById("search-div"); // Finds the new div by using the id
+  deleteDiv?.remove(); // Removes the new div if it is not already null        
 }
 
