@@ -84,3 +84,35 @@ body div#search-div {
   background: #437514;  
   border: 5px solid rgb(0, 0, 0);  
 }
+body ul li span.searchDesc {
+  font-family: arial;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;  
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+body ul li span.searchDescInfo {
+  font-family: arial;
+  font-size: 11px;
+  color: #ffffff;
+  text-align: center;  
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+body ul li img.searchDesc {
+  height: 50%;
+  width: 50%;
+  padding-top: 10px;
+}
+body ul li.searchDesc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 13%;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding-bottom: 10px;
+  background: #2b2c41;
+  border: 5px solid rgb(88, 78, 78);
+}

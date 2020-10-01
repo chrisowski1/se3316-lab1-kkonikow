@@ -106,23 +106,26 @@ function createDiv() {
   pokemonDiv.appendChild(searchHead);
   pokemonDiv.appendChild(searchUl);
   
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i <= 2; i++) {
     var listElement = document.createElement("LI");
+    listElement.setAttribute("class", "searchDesc");
     
     var nodeImg = document.createElement("img");
     var nodeName = document.createElement("span");
     var nodeDes1 = document.createElement("span");
     var nodeDes2 = document.createElement("span");
     
-    nodeImg.setAttribute("src", li[0].getElementsByTagName("img")[0].src);
+    nodeImg.setAttribute("src", li[i].getElementsByTagName("img")[0].src);
     nodeName.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[0].innerText));
     nodeDes1.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[1].innerText));
     nodeDes2.appendChild(document.createTextNode(li[i].getElementsByTagName("span")[2].innerText));
 
+    nodeImg.setAttribute("class", "searchDesc");
     nodeName.setAttribute("class", "searchDesc");
-    nodeDes1.setAttribute("class", "searchDesc");
-    nodeDes2.setAttribute("class", "searchDesc");
+    nodeDes1.setAttribute("class", "searchDescInfo");
+    nodeDes2.setAttribute("class", "searchDescInfo");
 
+    listElement.appendChild(nodeImg);
     listElement.appendChild(nodeName);
     listElement.appendChild(nodeDes1);
     listElement.appendChild(nodeDes2);  
